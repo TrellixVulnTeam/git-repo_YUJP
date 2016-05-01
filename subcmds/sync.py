@@ -295,7 +295,7 @@ later is required to fix a server side protocol bug.
     did_lock = False
 
     if not opt.quiet:
-      print('Fetching project %s' % project.name)
+      print('\033[1mFetching project \033[1;38;5;39m%s\033[0m' % project.name)
 
     # Encapsulate everything in a try/except/finally so that:
     # - We always set err_event in the case of an exception.
@@ -347,7 +347,7 @@ later is required to fix a server side protocol bug.
   def _Fetch(self, projects, opt):
     fetched = set()
     lock = _threading.Lock()
-    pm = Progress('Fetching projects', len(projects))
+    pm = Progress('Fetching projects ', len(projects))
 
     objdir_project_map = dict()
     for project in projects:
